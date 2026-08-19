@@ -34,4 +34,25 @@ public class ConexionDB {
         return instanciaConexionDB;
     }
 
+//Getters y Settrers    
+    
+    public static ConexionDB getInstanciaConexionDB() {
+        return instanciaConexionDB;
+    }
+
+    public static void setInstanciaConexionDB(ConexionDB instanciaConexionDB) {
+        ConexionDB.instanciaConexionDB = instanciaConexionDB;
+    }
+
+    public Connection getConnection() {
+        return connection;
+    }
+
+    public void setConnection(Connection connection) {
+        this.connection = connection;
+    }
+    
+    
+    
+    
 }

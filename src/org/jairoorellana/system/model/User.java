@@ -11,12 +11,28 @@ public class User {
     private String idUser;
 
 //Constructores
+    public User() {
 
-    
-    
-    
+    }
+
+    public User(String name, String lastname, String email, String user, String password, String idUser) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.user = user;
+        this.password = password;
+        this.idUser = idUser;
+    }
+
+    public User(String name, String lastname, String email, String user, String idUser) {
+        this.name = name;
+        this.lastname = lastname;
+        this.email = email;
+        this.user = user;
+        this.idUser = idUser;
+    }
+
 //Getters y Setters    
-    
     public String getName() {
         return name;
     }
@@ -64,8 +80,5 @@ public class User {
     public void setIdUser(String idUser) {
         this.idUser = idUser;
     }
-    
-    
-    
 
 }
