@@ -1,0 +1,37 @@
+package org.jairoorellana.system.config;
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
+public class ConexionDB {
+
+    private static ConexionDB instanciaConexionDB;
+    private Connection connection;
+
+    public ConexionDB() {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            connection = DriverManager.getConnection(
+                    "jdbc: mysql://" + Enviroment.LOCATION_SERVICE + "/" + Enviroment.DATA_BASE ,
+                    Enviroment.USER,
+                    Enviroment.PASSWORD);
+            
+        } catch (ClassNotFoundException classNotFound) {
+            System.out.println("Error clase no encontrada");
+        }catch (SQLException sqlException) {
+            System.out.println("Error de Conexion a DB");
+        }catch (Exception e) {
+            System.out.println("Error Padre" + e.getMessage());
+        }
+    }
+
+    public static ConexionDB getIntanciaConexionDB() {
+        if (instanciaConexionDB == null) {
+            instanciaConexionDB = new ConexionDB();
+        }
+
+        return instanciaConexionDB;
+    }
+
+}
